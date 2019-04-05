@@ -1,8 +1,10 @@
 grammar milestone_1;
 
+COMMENT2 : ' '* '#'+ '[' .*? ']' '#'+ ' '* -> skip;
+COMMENT : ' '* '#'+ .*? [\n\r] ' '* -> skip;
 EMPTYSTR : [\n\r] -> skip;
-EMPTYSTR2 : ' ' -> skip;
-INDENT : '    ';
+INDENT : ('    ')+;
+EMPTYSTR2 : ' '+ -> skip;
 start : VARIABLE;
 VARIABLE : 'var';
 ANDD : 'and';
@@ -71,15 +73,8 @@ WHILEE : 'while';
 XOR : 'xor';
 YIELDD : 'yield';
 IDENTIFIER : (LETTER)+ (('_') | (LETTER|DIGIT))*;
-LETTER : [A-Za-z];
+LETTER : [A-Za-z\u0080-\u00ff];
 DIGIT : [0-9];
-HEXDIGIT : DIGIT | [A-Fa-f] ;
-OCTDIGIT : [0-7];
-BINDIGIT : [0-1];
-HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ( '_' HEXDIGIT )*;
-DEC_LIT : DIGIT ( '_' DIGIT )*;
-OCT_LIT : '0' 'o' OCTDIGIT ( '_' OCTDIGIT )*;
-BIN_LIT : '0' ('b' | 'B' ) BINDIGIT ( '_' BINDIGIT )*;
 
 INT_LIT : HEX_LIT
         | DEC_LIT
@@ -106,6 +101,12 @@ FLOAT64_SUFFIX : ( ('f' | 'F') '64' ) | 'd' | 'D';
 FLOAT64_LIT : HEX_LIT '\'' FLOAT64_LIT
             | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\'' FLOAT64_SUFFIX;
 
+
+HEX_LIT : '0' ('x' | 'X' ) DIGIT | [A-Fa-f] ( '_' DIGIT | [A-Fa-f] )*;
+DEC_LIT : DIGIT ( ('_') DIGIT )*;
+OCT_LIT : '0' 'o' [0-7] ( '_' [0-7] )*;
+BIN_LIT : '0' ('b' | 'B' ) [0-1] ( '_' [0-1] )*;
+
 EQUALS_OPERATOR : '=';
 ADD_OPERATOR : '+';
 MUL_OPERATOR : '*';
@@ -130,5 +131,7 @@ OPEN_BRACK : '[';
 CLOSE_BRACK : ']';
 COMMA : ',';
 SEMI_COLON : ';';
-
-
+STR_LIT : '"' (.)*? '"';
+CHAR_LIT : '\'' (.)*? '\'';
+TRIPLESTR_LIT : '"""' (.)*? '"""';
+RSTR_LIT : ('r'|'R') '"' (.)*? '"';

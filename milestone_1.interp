@@ -1,8 +1,10 @@
 token literal names:
 null
 null
-' '
-'    '
+null
+null
+null
+null
 'var'
 'and'
 'addr'
@@ -92,9 +94,6 @@ null
 null
 null
 null
-null
-null
-null
 '='
 '+'
 '*'
@@ -119,12 +118,18 @@ null
 ']'
 ','
 ';'
+null
+null
+null
+null
 
 token symbolic names:
 null
+COMMENT2
+COMMENT
 EMPTYSTR
-EMPTYSTR2
 INDENT
+EMPTYSTR2
 VARIABLE
 ANDD
 ADDR
@@ -194,13 +199,6 @@ YIELDD
 IDENTIFIER
 LETTER
 DIGIT
-HEXDIGIT
-OCTDIGIT
-BINDIGIT
-HEX_LIT
-DEC_LIT
-OCT_LIT
-BIN_LIT
 INT_LIT
 INT8_LIT
 INT16_LIT
@@ -217,6 +215,10 @@ FLOAT32_SUFFIX
 FLOAT32_LIT
 FLOAT64_SUFFIX
 FLOAT64_LIT
+HEX_LIT
+DEC_LIT
+OCT_LIT
+BIN_LIT
 EQUALS_OPERATOR
 ADD_OPERATOR
 MUL_OPERATOR
@@ -241,10 +243,14 @@ OPEN_BRACK
 CLOSE_BRACK
 COMMA
 SEMI_COLON
+STR_LIT
+CHAR_LIT
+TRIPLESTR_LIT
+RSTR_LIT
 
 rule names:
 start
 
 
 atn:
-[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 121, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 6, 2, 2, 5, 3, 3, 2, 2, 2, 2]
+[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 124, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 8, 2, 2, 5, 3, 3, 2, 2, 2, 2]

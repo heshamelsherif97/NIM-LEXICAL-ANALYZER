@@ -118,13 +118,17 @@ def get_token_type(token):
         milestone_1Lexer.DEC_LIT: "DEC_LIT",
         milestone_1Lexer.OCT_LIT: "OCT_LIT",
         milestone_1Lexer.BIN_LIT: "BIN_LIT",
-        milestone_1Lexer.HEXDIGIT: "HEXDIGIT",
-        milestone_1Lexer.OCTDIGIT: "OCTDIGIT",
-        milestone_1Lexer.BINDIGIT: "BINDIGIT",
+        # milestone_1Lexer.HEXDIGIT: "HEXDIGIT",
+        # milestone_1Lexer.OCTDIGIT: "OCTDIGIT",
+        # milestone_1Lexer.BINDIGIT: "BINDIGIT",
+        milestone_1Lexer.RSTR_LIT: "RSTR_LIT",
         milestone_1Lexer.EQUALS_OPERATOR: "EQUALS_OPERATOR",
         milestone_1Lexer.ADD_OPERATOR: "ADD_OPERATOR",
         milestone_1Lexer.MUL_OPERATOR: "MUL_OPERATOR",
-        milestone_1Lexer.INDENT: "INDENT"
+        milestone_1Lexer.INDENT: "INDENT",
+        milestone_1Lexer.STR_LIT: "STR_LIT",
+        milestone_1Lexer.CHAR_LIT: "CHAR_LIT",
+        milestone_1Lexer.TRIPLESTR_LIT: "TRIPLESTR_LIT"
     }
     return switcher.get(token, "ERROR UNKNOWN TOKEN")
 

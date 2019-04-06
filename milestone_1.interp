@@ -5,6 +5,7 @@ null
 null
 null
 null
+null
 'var'
 'and'
 'addr'
@@ -94,7 +95,7 @@ null
 null
 null
 null
-'='
+null
 '+'
 '*'
 '-'
@@ -125,6 +126,7 @@ null
 
 token symbolic names:
 null
+COMMENT3
 COMMENT2
 COMMENT
 EMPTYSTR
@@ -199,7 +201,6 @@ YIELDD
 IDENTIFIER
 LETTER
 DIGIT
-INT_LIT
 INT8_LIT
 INT16_LIT
 INT32_LIT
@@ -210,11 +211,12 @@ UINT16_LIT
 UINT32_LIT
 UINT64_LIT
 EXP
-FLOAT_LIT
 FLOAT32_SUFFIX
 FLOAT32_LIT
-FLOAT64_SUFFIX
 FLOAT64_LIT
+FLOAT_LIT
+FLOAT64_SUFFIX
+INT_LIT
 HEX_LIT
 DEC_LIT
 OCT_LIT
@@ -253,4 +255,4 @@ start
 
 
 atn:
-[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 124, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 8, 2, 2, 5, 3, 3, 2, 2, 2, 2]
+[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 125, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 77, 2, 2, 5, 3, 3, 2, 2, 2, 2]

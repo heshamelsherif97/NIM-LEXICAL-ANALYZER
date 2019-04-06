@@ -8,9 +8,9 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3|")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3}")
         buf.write("\7\4\2\t\2\3\2\3\2\3\2\2\2\3\2\2\2\2\5\2\4\3\2\2\2\4\5")
-        buf.write("\7\b\2\2\5\3\3\2\2\2\2")
+        buf.write("\7M\2\2\5\3\3\2\2\2\2")
         return buf.getvalue()
 
 
@@ -25,13 +25,13 @@ class milestone_1Parser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "'var'", "'and'", "'addr'", 
-                     "'as'", "'asm'", "'end'", "'from'", "'bind'", "'block'", 
-                     "'break'", "'case'", "'cast'", "'concept'", "'const'", 
-                     "'continue'", "'converter'", "'defer'", "'discard'", 
-                     "'distinct'", "'div'", "'do'", "'elif'", "'else'", 
-                     "'enum'", "'except'", "'export'", "'finally'", "'for'", 
-                     "'func'", "'if'", "'import'", "'in'", "'include'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'var'", "'and'", 
+                     "'addr'", "'as'", "'asm'", "'end'", "'from'", "'bind'", 
+                     "'block'", "'break'", "'case'", "'cast'", "'concept'", 
+                     "'const'", "'continue'", "'converter'", "'defer'", 
+                     "'discard'", "'distinct'", "'div'", "'do'", "'elif'", 
+                     "'else'", "'enum'", "'except'", "'export'", "'finally'", 
+                     "'for'", "'func'", "'if'", "'import'", "'in'", "'include'", 
                      "'interface'", "'is'", "'isnot'", "'iterator'", "'let'", 
                      "'macro'", "'method'", "'mixin'", "'mod'", "'nil'", 
                      "'not'", "'notin'", "'object'", "'of'", "'or'", "'out'", 
@@ -44,14 +44,15 @@ class milestone_1Parser ( Parser ):
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'='", "'+'", "'*'", "'-'", "'/'", "'~'", "'&'", "'|'", 
-                     "'<'", "'>'", "'@'", "'%'", "'!'", "'^'", "'.'", "':'", 
-                     "'('", "')'", "'{'", "'}'", "'['", "']'", "','", "';'" ]
+                     "<INVALID>", "'+'", "'*'", "'-'", "'/'", "'~'", "'&'", 
+                     "'|'", "'<'", "'>'", "'@'", "'%'", "'!'", "'^'", "'.'", 
+                     "':'", "'('", "')'", "'{'", "'}'", "'['", "']'", "','", 
+                     "';'" ]
 
-    symbolicNames = [ "<INVALID>", "COMMENT2", "COMMENT", "EMPTYSTR", "INDENT", 
-                      "EMPTYSTR2", "VARIABLE", "ANDD", "ADDR", "ASS", "ASM", 
-                      "END", "FROM", "BIND", "BLOCK", "BREAKK", "CASE", 
-                      "CAST", "CONCEPT", "CONST", "CONTINUEE", "CONVERTER", 
+    symbolicNames = [ "<INVALID>", "COMMENT3", "COMMENT2", "COMMENT", "EMPTYSTR", 
+                      "INDENT", "EMPTYSTR2", "VARIABLE", "ANDD", "ADDR", 
+                      "ASS", "ASM", "END", "FROM", "BIND", "BLOCK", "BREAKK", 
+                      "CASE", "CAST", "CONCEPT", "CONST", "CONTINUEE", "CONVERTER", 
                       "DEFER", "DISCARD", "DISTINCT", "DIV", "DO", "ELIFF", 
                       "ELSEE", "ENUM", "EXCEPTT", "EEXPORT", "FINALLYY", 
                       "FORR", "FUNC", "IFF", "IIMPORT", "INN", "INCLUDE", 
@@ -61,11 +62,11 @@ class milestone_1Parser ( Parser ):
                       "REF", "RETURNN", "SHL", "SHR", "STATIC", "TEMPLATE", 
                       "TRYY", "TUPLEE", "TYPEE", "USING", "WHEN", "WHILEE", 
                       "XOR", "YIELDD", "IDENTIFIER", "LETTER", "DIGIT", 
-                      "INT_LIT", "INT8_LIT", "INT16_LIT", "INT32_LIT", "INT64_LIT", 
+                      "INT8_LIT", "INT16_LIT", "INT32_LIT", "INT64_LIT", 
                       "UINT_LIT", "UINT8_LIT", "UINT16_LIT", "UINT32_LIT", 
-                      "UINT64_LIT", "EXP", "FLOAT_LIT", "FLOAT32_SUFFIX", 
-                      "FLOAT32_LIT", "FLOAT64_SUFFIX", "FLOAT64_LIT", "HEX_LIT", 
-                      "DEC_LIT", "OCT_LIT", "BIN_LIT", "EQUALS_OPERATOR", 
+                      "UINT64_LIT", "EXP", "FLOAT32_SUFFIX", "FLOAT32_LIT", 
+                      "FLOAT64_LIT", "FLOAT_LIT", "FLOAT64_SUFFIX", "INT_LIT", 
+                      "HEX_LIT", "DEC_LIT", "OCT_LIT", "BIN_LIT", "EQUALS_OPERATOR", 
                       "ADD_OPERATOR", "MUL_OPERATOR", "MINUS_OPERATOR", 
                       "DIV_OPERATOR", "BITWISE_NOT_OPERATOR", "AND_OPERATOR", 
                       "OR_OPERATOR", "LESS_THAN", "GREATER_THAN", "AT", 
@@ -80,81 +81,81 @@ class milestone_1Parser ( Parser ):
     ruleNames =  [ "start" ]
 
     EOF = Token.EOF
-    COMMENT2=1
-    COMMENT=2
-    EMPTYSTR=3
-    INDENT=4
-    EMPTYSTR2=5
-    VARIABLE=6
-    ANDD=7
-    ADDR=8
-    ASS=9
-    ASM=10
-    END=11
-    FROM=12
-    BIND=13
-    BLOCK=14
-    BREAKK=15
-    CASE=16
-    CAST=17
-    CONCEPT=18
-    CONST=19
-    CONTINUEE=20
-    CONVERTER=21
-    DEFER=22
-    DISCARD=23
-    DISTINCT=24
-    DIV=25
-    DO=26
-    ELIFF=27
-    ELSEE=28
-    ENUM=29
-    EXCEPTT=30
-    EEXPORT=31
-    FINALLYY=32
-    FORR=33
-    FUNC=34
-    IFF=35
-    IIMPORT=36
-    INN=37
-    INCLUDE=38
-    INTERFACE=39
-    ISS=40
-    ISNOT=41
-    ITERATOR=42
-    LET=43
-    MACRO=44
-    METHOD=45
-    MIXIN=46
-    MOD=47
-    NIL=48
-    NOTT=49
-    NOTIN=50
-    OBJECTT=51
-    OF=52
-    ORR=53
-    OUT=54
-    PROC=55
-    PTR=56
-    RAISEE=57
-    REF=58
-    RETURNN=59
-    SHL=60
-    SHR=61
-    STATIC=62
-    TEMPLATE=63
-    TRYY=64
-    TUPLEE=65
-    TYPEE=66
-    USING=67
-    WHEN=68
-    WHILEE=69
-    XOR=70
-    YIELDD=71
-    IDENTIFIER=72
-    LETTER=73
-    DIGIT=74
-    INT_LIT=75
+    COMMENT3=1
+    COMMENT2=2
+    COMMENT=3
+    EMPTYSTR=4
+    INDENT=5
+    EMPTYSTR2=6
+    VARIABLE=7
+    ANDD=8
+    ADDR=9
+    ASS=10
+    ASM=11
+    END=12
+    FROM=13
+    BIND=14
+    BLOCK=15
+    BREAKK=16
+    CASE=17
+    CAST=18
+    CONCEPT=19
+    CONST=20
+    CONTINUEE=21
+    CONVERTER=22
+    DEFER=23
+    DISCARD=24
+    DISTINCT=25
+    DIV=26
+    DO=27
+    ELIFF=28
+    ELSEE=29
+    ENUM=30
+    EXCEPTT=31
+    EEXPORT=32
+    FINALLYY=33
+    FORR=34
+    FUNC=35
+    IFF=36
+    IIMPORT=37
+    INN=38
+    INCLUDE=39
+    INTERFACE=40
+    ISS=41
+    ISNOT=42
+    ITERATOR=43
+    LET=44
+    MACRO=45
+    METHOD=46
+    MIXIN=47
+    MOD=48
+    NIL=49
+    NOTT=50
+    NOTIN=51
+    OBJECTT=52
+    OF=53
+    ORR=54
+    OUT=55
+    PROC=56
+    PTR=57
+    RAISEE=58
+    REF=59
+    RETURNN=60
+    SHL=61
+    SHR=62
+    STATIC=63
+    TEMPLATE=64
+    TRYY=65
+    TUPLEE=66
+    TYPEE=67
+    USING=68
+    WHEN=69
+    WHILEE=70
+    XOR=71
+    YIELDD=72
+    IDENTIFIER=73
+    LETTER=74
+    DIGIT=75
     INT8_LIT=76
     INT16_LIT=77
     INT32_LIT=78
@@ -165,43 +166,44 @@ class milestone_1Parser ( Parser ):
     UINT32_LIT=83
     UINT64_LIT=84
     EXP=85
-    FLOAT_LIT=86
-    FLOAT32_SUFFIX=87
-    FLOAT32_LIT=88
-    FLOAT64_SUFFIX=89
-    FLOAT64_LIT=90
-    HEX_LIT=91
-    DEC_LIT=92
-    OCT_LIT=93
-    BIN_LIT=94
-    EQUALS_OPERATOR=95
-    ADD_OPERATOR=96
-    MUL_OPERATOR=97
-    MINUS_OPERATOR=98
-    DIV_OPERATOR=99
-    BITWISE_NOT_OPERATOR=100
-    AND_OPERATOR=101
-    OR_OPERATOR=102
-    LESS_THAN=103
-    GREATER_THAN=104
-    AT=105
-    MODULUS=106
-    NOT_OPERATOR=107
-    XOR_OPERATOR=108
-    DOT=109
-    COLON=110
-    OPEN_PAREN=111
-    CLOSE_PAREN=112
-    OPEN_BRACE=113
-    CLOSE_BRACE=114
-    OPEN_BRACK=115
-    CLOSE_BRACK=116
-    COMMA=117
-    SEMI_COLON=118
-    STR_LIT=119
-    CHAR_LIT=120
-    TRIPLESTR_LIT=121
-    RSTR_LIT=122
+    FLOAT32_SUFFIX=86
+    FLOAT32_LIT=87
+    FLOAT64_LIT=88
+    FLOAT_LIT=89
+    FLOAT64_SUFFIX=90
+    INT_LIT=91
+    HEX_LIT=92
+    DEC_LIT=93
+    OCT_LIT=94
+    BIN_LIT=95
+    EQUALS_OPERATOR=96
+    ADD_OPERATOR=97
+    MUL_OPERATOR=98
+    MINUS_OPERATOR=99
+    DIV_OPERATOR=100
+    BITWISE_NOT_OPERATOR=101
+    AND_OPERATOR=102
+    OR_OPERATOR=103
+    LESS_THAN=104
+    GREATER_THAN=105
+    AT=106
+    MODULUS=107
+    NOT_OPERATOR=108
+    XOR_OPERATOR=109
+    DOT=110
+    COLON=111
+    OPEN_PAREN=112
+    CLOSE_PAREN=113
+    OPEN_BRACE=114
+    CLOSE_BRACE=115
+    OPEN_BRACK=116
+    CLOSE_BRACK=117
+    COMMA=118
+    SEMI_COLON=119
+    STR_LIT=120
+    CHAR_LIT=121
+    TRIPLESTR_LIT=122
+    RSTR_LIT=123
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -218,8 +220,8 @@ class milestone_1Parser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def VARIABLE(self):
-            return self.getToken(milestone_1Parser.VARIABLE, 0)
+        def DIGIT(self):
+            return self.getToken(milestone_1Parser.DIGIT, 0)
 
         def getRuleIndex(self):
             return milestone_1Parser.RULE_start
@@ -242,7 +244,7 @@ class milestone_1Parser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 2
-            self.match(milestone_1Parser.VARIABLE)
+            self.match(milestone_1Parser.DIGIT)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

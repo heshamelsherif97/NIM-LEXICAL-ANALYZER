@@ -1,6 +1,0 @@
-50INT_LIT  0
-  ,   DIGIT  0
-
-77INT_LIT  0
-  ,   DIGIT  0
-

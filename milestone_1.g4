@@ -1,11 +1,11 @@
 grammar milestone_1;
-
+COMMENT3 : ' '* '#'+ '[' (COMMENT2 | . )*? ']' '#'+ ' '* -> skip;
 COMMENT2 : ' '* '#'+ '[' .*? ']' '#'+ ' '* -> skip;
 COMMENT : ' '* '#'+ .*? [\n\r] ' '* -> skip;
-EMPTYSTR : [\n\r] -> skip;
+EMPTYSTR : [\n\r\t] -> skip;
 INDENT : ('    ')+;
 EMPTYSTR2 : ' '+ -> skip;
-start : VARIABLE;
+start : DIGIT;
 VARIABLE : 'var';
 ANDD : 'and';
 ADDR : 'addr';
@@ -76,11 +76,6 @@ IDENTIFIER : (LETTER)+ (('_') | (LETTER|DIGIT))*;
 LETTER : [A-Za-z\u0080-\u00ff];
 DIGIT : [0-9];
 
-INT_LIT : HEX_LIT
-        | DEC_LIT
-        | OCT_LIT
-        | BIN_LIT;
-
 INT8_LIT : INT_LIT '\'' ('i' | 'I') '8';
 INT16_LIT : INT_LIT '\'' ('i' | 'I') '16';
 INT32_LIT : INT_LIT '\'' ('i' | 'I') '32';
@@ -92,22 +87,29 @@ UINT16_LIT : INT_LIT '\'' ('u' | 'U') '16';
 UINT32_LIT : INT_LIT '\'' ('u' | 'U') '32';
 UINT64_LIT : INT_LIT '\'' ('u' | 'U') '64';
 
-EXP : ('e' | 'E' ) ('+' | '-') DIGIT ( '_' DIGIT )*;
-FLOAT_LIT : DIGIT ('_' DIGIT)* (('.' DIGIT ('_' DIGIT)* EXP) |EXP);
+EXP : ('e' | 'E' ) ('+' | '-') DIGIT ( '_' DIGIT | DIGIT)*;
+
 FLOAT32_SUFFIX : ('f' | 'F') '32';
 FLOAT32_LIT : HEX_LIT '\'' FLOAT32_SUFFIX
-            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\'' FLOAT32_LIT;
-FLOAT64_SUFFIX : ( ('f' | 'F') '64' ) | 'd' | 'D';
+            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\'' FLOAT32_SUFFIX;
 FLOAT64_LIT : HEX_LIT '\'' FLOAT64_LIT
             | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\'' FLOAT64_SUFFIX;
+FLOAT_LIT : DIGIT ('_' DIGIT | DIGIT)* (('.' DIGIT ('_' DIGIT | DIGIT)* (EXP)*) |EXP);
+
+FLOAT64_SUFFIX : ( ('f' | 'F') '64' ) | 'd' | 'D';
 
 
-HEX_LIT : '0' ('x' | 'X' ) DIGIT | [A-Fa-f] ( '_' DIGIT | [A-Fa-f] )*;
-DEC_LIT : DIGIT ( ('_') DIGIT )*;
-OCT_LIT : '0' 'o' [0-7] ( '_' [0-7] )*;
-BIN_LIT : '0' ('b' | 'B' ) [0-1] ( '_' [0-1] )*;
+INT_LIT : HEX_LIT
+        | DEC_LIT
+        | OCT_LIT
+        | BIN_LIT;
 
-EQUALS_OPERATOR : '=';
+HEX_LIT : '0' ('x' | 'X' ) (DIGIT | [A-Fa-f]) ( '_' DIGIT | DIGIT | [A-Fa-f] )*;
+DEC_LIT : DIGIT ( ('_') DIGIT | DIGIT)*;
+OCT_LIT : '0' 'o' [0-7] ( '_' [0-7] | [0-7])*;
+BIN_LIT : '0' ('b' | 'B' ) [0-1] ( '_' [0-1] | [0-1])*;
+
+EQUALS_OPERATOR : '==' | '=';
 ADD_OPERATOR : '+';
 MUL_OPERATOR : '*';
 MINUS_OPERATOR : '-';
